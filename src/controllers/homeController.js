@@ -8,5 +8,6 @@ const HomeModel = require('../models/HomeModel');
 .catch(e=> console.log(e));*/
 
 exports.index = (req, res)=>{
+    res.locals.dados = JSON.stringify(req.body);
     res.render('home')
 }

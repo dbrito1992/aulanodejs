@@ -11,13 +11,15 @@ mongoose.connect(process.env.URLDATANASE).then((res)=>{
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-
-const {middlewareGlobal} = require('./src/middlewares/middlewares');
+const helmet = require('helmet');
+const csrf = require('csurf');
+const {middlewareGlobal, checkErrorCsrf, csrfToken} = require('./src/middlewares/middlewares');
 // Recebe um corpo de dados na requesição
 app.use(express.urlencoded({extended: true}));
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
+app.use(helmet());
 const sessionOptions = session({
     secret: '14253607zhda',
     store: MongoStore.create({
@@ -37,7 +39,11 @@ app.use(flash());
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
+app.use(csrf());
+
 app.use(middlewareGlobal);
+app.use(checkErrorCsrf)
+app.use(csrfToken);
 app.use(routes);
 app.on('Pronto', ()=>{
     app.listen(3000, ()=>{

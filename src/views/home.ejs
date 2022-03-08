@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de home</title>
-</head>
-<body>
-    Página de home
-    <a href="/contato">ir para contato</a>
-    <script src="./assets/js/bundle.js"></script>
-</body>
-</html>
+<%- include('includes/head') %>
+
+<a href="<%= links.contato %>">ir para contato</a>
+
+
+<p><%= dados %></p>
+
+<form action="/" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome">
+    <button type="submit">Enviar</button>
+</form>
+
+<%- include('includes/footer') %>
+    
