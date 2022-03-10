@@ -16,7 +16,7 @@ const csrf = require('csurf');
 const {middlewareGlobal, checkErrorCsrf, csrfToken} = require('./src/middlewares/middlewares');
 // Recebe um corpo de dados na requesição
 app.use(express.urlencoded({extended: true}));
-
+app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.use(helmet());

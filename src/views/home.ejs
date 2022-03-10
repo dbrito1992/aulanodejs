@@ -1,16 +1,39 @@
-<%- include('includes/head') %>
+<%- include('includes/head') %> 
+<%- include('includes/nav') %> 
 
-<a href="<%= links.contato %>">ir para contato</a>
+<div class="container">
+    <div class="row my-3">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <h1 class="text-center display-1">
+                Agenda
+            </h1>
+            <p class="text-center lead">
+                Todos seus contatos estão aqui!
+            </p>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger">
+                Error qualquer!
+            </div>
+            <div class="responsive-table">
+                <table class="table">
+                    <tr>
+                        <td>Diego</td>
+                        <td>Brito</td>
+                        <td>8499633860</td>
+                        <td>tese@hotmail.com</td>
+                    </tr>
+                </table>
+            </div>  
+        </div>
+    </div>
+</div>
 
+<%- include('includes/footer') %> 
 
-<p><%= dados %></p>
-
-<form action="/" method="POST">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <label for="nome">Nome</label>
-    <input type="text" name="nome" id="nome">
-    <button type="submit">Enviar</button>
-</form>
-
-<%- include('includes/footer') %>
+ 
     
