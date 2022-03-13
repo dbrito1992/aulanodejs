@@ -9,5 +9,7 @@ route.get('/', home.index);
 // Rotas Login
 route.get('/login/index', login.index);
 route.post('/login/register', login.register);
+route.post('/login/login', login.login);
+route.get('/login/logout', login.logout);
 
 module.exports = route;

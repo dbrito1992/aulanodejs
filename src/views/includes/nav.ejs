@@ -7,7 +7,11 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/login/index">Login</a>
+            <% if(!user){ %> 
+            <a class="nav-link" href="/login/index">Entrar</a>
+            <% }else{ %> 
+              <a class="nav-link" href="/login/logout">Sair</a>
+            <% } %> 
           </li> 
         </ul>
       </div>
