@@ -1,12 +1,6 @@
-//const HomeModel = require('../models/HomeModel');
+const Contato = require('../models/ContatoModel');
 
-/*HomeModel.create({
-    titulo: "titulo de teste.",
-    descricao: "descrição de teste."
-})
-.then(res=> console.log(res))
-.catch(e=> console.log(e));*/
-
-exports.index = (req, res)=>{
-    res.render('home')
+exports.index = async (req, res)=>{
+    const contatos = await Contato.busrcarContatos();
+    res.render('home', { contatos });
 }
